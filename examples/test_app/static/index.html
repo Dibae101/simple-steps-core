@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>simple-steps-core test app</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>simple-steps-core <span class="muted">test app</span></h1>
+    <p class="muted">Manual test harness for the tool API. Call a tool directly, or build a multi-step workflow.</p>
+  </header>
+
+  <main>
+    <!-- Left column: tool palette + single-call form -->
+    <section class="panel" id="panel-tools">
+      <h2>Tools</h2>
+      <ul id="tool-list" class="tool-list">
+        <li class="muted">Loading…</li>
+      </ul>
+
+      <div id="call-form-container" class="hidden">
+        <h3 id="selected-tool-name"></h3>
+        <p id="selected-tool-description" class="muted"></p>
+        <form id="call-form"></form>
+        <div class="actions">
+          <button type="button" id="btn-run-now" class="primary">Run now</button>
+          <button type="button" id="btn-add-to-workflow">Add to workflow</button>
+        </div>
+        <div id="call-result" class="result hidden"></div>
+      </div>
+    </section>
+
+    <!-- Right column: workflow builder -->
+    <section class="panel" id="panel-workflow">
+      <h2>Workflow</h2>
+      <p class="muted">Steps run in order. Reference an earlier step's output by typing its step id (e.g. <code>step1</code>) as an argument's value.</p>
+      <ol id="step-list" class="step-list">
+        <li class="muted">No steps yet. Select a tool on the left and click "Add to workflow".</li>
+      </ol>
+      <div class="actions">
+        <button type="button" id="btn-run-workflow" class="primary">Run workflow</button>
+        <button type="button" id="btn-clear-workflow">Clear</button>
+      </div>
+      <div id="workflow-result" class="result hidden"></div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
